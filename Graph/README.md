@@ -44,6 +44,27 @@ A graph is a non-linear data structure consisting of **vertices (nodes)** and **
 ```cpp
 int adjMatrix[5][5] = {0};
 adjMatrix[0][1] = 1;  // Edge from 0 to 1 (unweighted)
-adjMatrix[0][1] = 5;  // Edge from 0 to 1 (weighted)
+adjMatrix[0][1] = 5;  // Edge from 0 to 1 (weighted) 
+```
 
 
+b) Adjacency List
+Array of linked lists/vectors storing neighbors.
+
+Time Complexity:
+
+Check edge: O ( V ) 
+Space: O ( V + E ) O(V+E).
+
+
+```cpp
+
+// Unweighted adjacency list
+vector<int> adjList[5];
+adjList[0].push_back(1);  // Edge 0→1
+
+// Weighted adjacency list
+vector<pair<int, int>> weightedAdjList[5];
+weightedAdjList[0].push_back({1, 5});  // Edge 0→1 with weight 5
+
+```
