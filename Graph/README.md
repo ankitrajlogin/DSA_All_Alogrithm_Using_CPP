@@ -47,6 +47,7 @@ adjMatrix[0][1] = 1;  // Edge from 0 to 1 (unweighted)
 adjMatrix[0][1] = 5;  // Edge from 0 to 1 (weighted) 
 ```
 
+
 ### b) Adjacency List
 Array of linked lists/vectors storing neighbors.
 
@@ -270,4 +271,4 @@ vector<pair<int, int>> prim(vector<pair<int, int>> adj[], int V) {
 }
 ```
 
-This markdown file contains the provided graph algorithms formatted properly with code snippets and descriptions.
+
