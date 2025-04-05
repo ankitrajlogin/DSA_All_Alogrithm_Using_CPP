@@ -4,6 +4,9 @@ using namespace std;
 
 // using bfs ; 
 
+// Time Complexity O(N + M)	
+// Space ComplexityO(N) (Queue + Visited Array)
+
 bool detect(int src , vector<vector<int>>& adj , vector<bool>& vis){
     vis[src] = 1; 
 
