@@ -2,7 +2,7 @@
 
 // Formal Definition:
 
-// A graph 𝐺 = ( 𝑉 , 𝐸 ) G=(V,E) is called bipartite if its vertex set 𝑉 V can be partitioned into two disjoint subsets 𝑈 U and 𝑉 V (i.e., 𝑉 = 𝑈 ∪ 𝑉 V=U∪V and 𝑈 ∩ 𝑉 = ∅ U∩V=∅) such that every edge in 𝐸 E connects a vertex in 𝑈 U to a vertex in 𝑉 V. ​
+// A graph 𝐺 = ( 𝑉 , 𝐸 )  is called bipartite if its vertex set 𝑉 can be partitioned into two disjoint subsets 𝑈 and 𝑉 (i.e., 𝑉 = 𝑈 ∪ 𝑉 and 𝑈 ∩ 𝑉 = ∅  such that every edge in 𝐸  connects a vertex in 𝑈  to a vertex in 𝑉 . ​
 
 // Key Characteristics:
 
