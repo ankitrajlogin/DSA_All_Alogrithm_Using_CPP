@@ -31,4 +31,139 @@
 
 
 
+// Why Topological Sort?
+// In a DAG, once we process a node in topological order, we are sure that all its predecessors have already been processed — this makes it ideal for dynamic programming-based shortest path algorithms.
+
+
+#include<bits/stdc++.h>
+using namespace std ; 
+
+// ----------- Topological Sort Function -----------
+void topoSort(int node , vector<bool>& visited , stack<int>& st , vector<pair<int,int>>adj[]){
+    visited[node] = true ; 
+
+    for(int i = 0 ; i< adj[node].size() ; i++){
+        int neighbor = adj[node][i].first ; 
+
+        if(!visited[neighbor]){
+            topoSort(neighbor , visited , st , adj) ; 
+        }
+    }
+
+    st.push(node) ; 
+}
+
+
+// ----------- Shortest Path in DAG Function -----------
+
+vector<int>shortestPathDAG(int V , vector<pair<int,int>>adj[] , int source){
+    vector<bool>visited(V , false) ; 
+    stack<int>st ; 
+
+    // Step 1: Perform Topological Sort
+    for(int i = 0 ;i < V; i++){
+        if(!visited[i]){
+            topoSort(i , visited , st , adj) ; 
+        }
+    }
+
+    // Step 2: Initialize distance array
+    vector<int>dist(V , INT_MAX) ; 
+    dist[source] = 0 ; 
+
+    // Step 3: Process vertices in topological order
+    while(!st.empty()){
+        int u = st.top() ; 
+
+        st.pop() ; 
+
+        if(dist[u] != INT_MAX){
+            for(int i = 0 ; i< adj[u].size() ; i++){
+                int v = adj[u][i].first ; 
+                int weight = adj[u][i].second ; 
+
+                if(dist[u] + weight < dist[v]){
+                    dist[v] = dist[u] + weight ; 
+                }
+            }
+        }
+    }
+
+    return dist ; 
+
+}
+
+// 1. Topological Sort (DFS-based) :  O(V + E)
+// 2.  Relaxing Edges in Topological Order : O(V + E)
+// so , 
+// overall time complexity : O(V+E) ; 
+
+// Overall Space Complexity = O(V + E)
+
+// ----------- Main Function with Input -----------
+int main() {
+    int V, E;
+    cout << "Enter number of vertices and edges: ";
+    cin >> V >> E;
+
+    vector<pair<int, int>> adj[V];
+    cout << "Enter each edge as: u v w (u -> v with weight w)\n";
+    for (int i = 0; i < E; ++i) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        adj[u].push_back({v, w});
+    }
+
+    int source;
+    cout << "Enter source vertex: ";
+    cin >> source;
+
+    vector<int> distances = shortestPathDAG(V, adj, source);
+
+    cout << "\nShortest distances from source " << source << ":\n";
+    for (int i = 0; i < V; ++i) {
+        if (distances[i] == numeric_limits<int>::max())
+            cout << "Vertex " << i << ": INF\n";
+        else
+            cout << "Vertex " << i << ": " << distances[i] << "\n";
+    }
+
+    return 0;
+}
+
+
+
+// // INPUT 
+// 6 7
+// 0 1 2
+// 0 4 1
+// 1 2 3
+// 4 2 2
+// 2 3 6
+// 4 5 4
+// 5 3 1
+// 0
+
+// 0 → 1 (2)
+// 0 → 4 (1)
+// 1 → 2 (3)
+// 4 → 2 (2)
+// 2 → 3 (6)
+// 4 → 5 (4)
+// 5 → 3 (1)
+
+
+// OUTPUT 
+// Enter number of vertices and edges: 
+// Enter each edge as: u v w (u -> v with weight w)
+// Enter source vertex: 
+
+// Shortest distances from source 0:
+// Vertex 0: 0
+// Vertex 1: 2
+// Vertex 2: 3
+// Vertex 3: 8
+// Vertex 4: 1
+// Vertex 5: 5
+
 

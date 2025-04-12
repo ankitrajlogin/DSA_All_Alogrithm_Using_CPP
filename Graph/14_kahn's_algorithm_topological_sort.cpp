@@ -15,6 +15,11 @@
 #include<bits/stdc++.h>
 using namespace std ; 
 
+
+// Time Complexity: O(V+E), where V = no. of nodes and E = no. of edges. This is a simple BFS algorithm.
+
+// Space Complexity: O(N) + O(N) ~ O(2N), O(N) for the indegree array, and O(N) for the queue data structure used in BFS(where N = no.of nodes).
+
 vector<int> topologicalSortKahn(int V , vector<int>adj[]){
     int indegree[V] = {0} ;
 

@@ -44,7 +44,7 @@
 // => all are true topological sorts. 
 
 
-// Each of these orderings respects the direction of edges, ensuring that for every directed edge  𝑢 → 𝑣 u→v, 𝑢 u precedes 𝑣 v.​
+// Each of these orderings respects the direction of edges, ensuring that for every directed edge  𝑢 → 𝑣 , 𝑢 precedes 𝑣.​
 
 // Reason for Multiple Orderings:
 

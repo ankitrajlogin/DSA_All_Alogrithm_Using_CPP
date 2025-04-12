@@ -4,8 +4,8 @@
 using namespace std; 
 
 
-// time complexity : O(N +M ) ; 
-// space complexity ; O(N) (recursin stack + visited array) ; 
+// time complexity : O(V + E) ; 
+// space complexity ; O(V) (recursin stack + visited array) ; 
 
 
 // DFS function to detect cycle

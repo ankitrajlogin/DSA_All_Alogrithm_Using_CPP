@@ -11,12 +11,12 @@
 
 
 // DFS	
-// Time complexity : O(N + M)	
-// space complexity : O(N) (Recursion Stack + Visited Array)
+// Time complexity : O(V + E)	
+// space complexity : O(V) (Recursion Stack + Visited Array)
 
 // BFS	
-// Time complexity : O(N + M)
-// space compleixyt : O(N) (Queue + Visited Array)
+// Time complexity : O(V + E)
+// space compleixyt : O(V) (Queue + Visited Array)
 
 
 #include <iostream>
