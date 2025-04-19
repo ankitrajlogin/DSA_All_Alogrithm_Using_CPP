@@ -86,6 +86,10 @@ int main()
     cout << ans;
     cout << endl;
 
+    cout << "Cheapest cost from " << src << " to " << dst << " within " << K << " stops: " << ans << "\n";
+
+    cout << "----------------------------------------" << endl; 
+
 
     int V2 = 6;
     vector<vector<int>> flights2 = {
